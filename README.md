@@ -1,6 +1,10 @@
-# Ember-test-assets
+# ember-test-assets
 
-This README outlines the details of collaborating on this Ember addon.
+Avoid 404 network errors when fetching assets that don't exists in tests.
+
+This addon merges `/tests/assets` folder with `/public` folder on tests. Put
+your dummy assets inside `/tests/assets` and reference them as absolute path in
+your tests `User.create({ avatar_url: 'my_avatar.jpg' })`
 
 ## Installation
 
