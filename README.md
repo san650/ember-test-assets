@@ -28,3 +28,9 @@ your tests `User.create({ avatar_url: 'my_avatar.jpg' })`
 * `ember build`
 
 For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+
+## License
+
+ember-test-assets is licensed under the MIT license.
+
+See [LICENSE.md](./LICENSE.md) for the full license text.
