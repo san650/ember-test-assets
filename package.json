@@ -1,21 +1,27 @@
 {
   "name": "ember-test-assets",
   "version": "0.0.1",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Add assets for tests easily and avoid 404 network errors.",
+  "homepage": "https://github.com/san650/ember-test-assets#readme",
+  "bugs": "https://github.com/san650/ember-test-assets/issues",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
   "scripts": {
     "build": "ember build",
+    "preversion": "git clean -df && npm test",
     "start": "ember server",
     "test": "ember try:testall"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/san650/ember-test-assets.git"
+  },
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Santiago Ferreira",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.2",
@@ -40,7 +46,13 @@
     "loader.js": "^4.0.1"
   },
   "keywords": [
-    "ember-addon"
+    "acceptance",
+    "integration",
+    "ember",
+    "ember-addon",
+    "helper",
+    "assets",
+    "testing"
   ],
   "dependencies": {
     "broccoli-funnel": "^1.0.1",

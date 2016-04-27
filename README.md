@@ -1,33 +1,52 @@
 # ember-test-assets
 
-Avoid 404 network errors when fetching assets that don't exists in tests.
+Add assets for tests easily and avoid 404 network errors.
 
-This addon merges `/tests/assets` folder with `/public` folder on tests. Put
-your dummy assets inside `/tests/assets` and reference them as absolute path in
-your tests `User.create({ avatar_url: 'my_avatar.jpg' })`
+This addon let's you add assets to be consumed by your tests just by dropping
+them into `/tests/assets/` folder. When in test mode, this folder is merged with `/public` folder on build.
+
+Let's say you're showing the user avatar on a page so you'll have a dummy user
+pointing to a dummy image like the following
+
+```js
+User.create({ avatar_url: '/images/my_avatar.jpg' })
+```
+
+Then you can place this image into `/tests/assets/images` and when the
+acceptance tests run, the browser will find the image and don't throw those
+noisy and useless 404 request errors.
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+```sh
+$ ember install ember-test-assets
+```
 
-## Running
+Or
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+```sh
+$ npm install --save-dev ember-test-assets
+```
 
-## Running Tests
+## Development
 
-* `npm test` (Runs `ember try:testall` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+### Get the source code
 
-## Building
+```sh
+$ git clone https://github.com/san650/ember-test-assets.git
+```
 
-* `ember build`
+### Running Tests
 
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+```sh
+$ ember test --server
+```
+
+Or run against multiple versions of Ember
+
+```sh
+$ ember try:testall
+```
 
 ## License
 
