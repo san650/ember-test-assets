@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo 'Test build'
 
 rm -rf ./tests/assets
