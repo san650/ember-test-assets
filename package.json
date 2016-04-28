@@ -1,6 +1,6 @@
 {
   "name": "ember-test-assets",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Add assets for tests easily and avoid 404 network errors.",
   "homepage": "https://github.com/san650/ember-test-assets#readme",
   "bugs": "https://github.com/san650/ember-test-assets/issues",
