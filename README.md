@@ -39,13 +39,7 @@ $ git clone https://github.com/san650/ember-test-assets.git
 ### Running Tests
 
 ```sh
-$ ember test --server
-```
-
-Or run against multiple versions of Ember
-
-```sh
-$ ember try:testall
+$ npm test
 ```
 
 ## License

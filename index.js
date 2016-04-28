@@ -2,22 +2,30 @@
 'use strict';
 
 var Funnel = require('broccoli-funnel');
-var mergeTrees = require('broccoli-merge-trees');
+var fs = require('fs');
+var path = require('path');
 
 module.exports = {
   name: 'ember-test-assets',
 
-  treeForPublic: function(originalTree) {
-    var tree = this._super.treeForPublic(originalTree);
-
+  treeFor: function() {
     if (!this.app.tests) {
-      return tree;
+      return;
     }
 
-    if (!tree) {
-      return new Funnel('tests/assets');
-    }
+    return this._super.treeFor.apply(this, arguments);
+  },
 
-    return mergeTrees(['public', 'tests/assets'], { overwrite: true });
+  treeForPublic: function() {
+    var assets = path.join(this.app.project.root, 'tests/assets/');
+    var stat;
+
+    try {
+      stat = fs.statSync(assets);
+
+      if (stat.isDirectory()) {
+        return new Funnel('tests/assets');
+      }
+    } catch(e) {}
   }
 };
