@@ -1,5 +1,8 @@
 # ember-test-assets
 
+[![Build Status](https://travis-ci.org/san650/ember-test-assets.svg?branch=master)](https://travis-ci.org/san650/ember-test-assets)
+![Latest version](https://img.shields.io/npm/v/ember-test-assets.svg)
+
 Add assets for tests easily and avoid 404 network errors.
 
 This addon let's you add assets to be consumed by your tests just by dropping
@@ -41,6 +44,11 @@ $ git clone https://github.com/san650/ember-test-assets.git
 ```sh
 $ npm test
 ```
+
+### Project's health
+
+[![Build Status](https://travis-ci.org/san650/ember-test-assets.svg?branch=master)](https://travis-ci.org/san650/ember-test-assets)
+[![Ember Observer Score](http://emberobserver.com/badges/ember-test-assets.svg)](http://emberobserver.com/addons/ember-test-assets)
 
 ## License
 
