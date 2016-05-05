@@ -49,6 +49,7 @@ $ npm test
 
 [![Build Status](https://travis-ci.org/san650/ember-test-assets.svg?branch=master)](https://travis-ci.org/san650/ember-test-assets)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-test-assets.svg)](http://emberobserver.com/addons/ember-test-assets)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2a4d6a0ba67f448abddad2e007e665cf)](https://www.codacy.com/app/san650/ember-test-assets)
 
 ## License
 
