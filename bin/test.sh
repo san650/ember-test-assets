@@ -12,7 +12,7 @@ if [ ! -e ./tmp/build-test/index*.html ]; then
   echo '---------'
   cat log-test.txt
 
-  exit 1001
+  exit 1
 else
   echo 'OK'
 fi
@@ -28,7 +28,7 @@ if [ -e ./tmp/build-production/foo*.png ]; then
   echo '---------'
   cat log-production.txt
 
-  exit 1001
+  exit 1
 else
   echo 'OK'
 fi
@@ -41,7 +41,7 @@ if [ ! -e ./tmp/build-development/foo*.png ]; then
   echo '---------'
   cat log-development.txt
 
-  exit 1001
+  exit 1
 else
   echo 'OK'
 fi
