@@ -1,47 +1,73 @@
 #!/usr/bin/env bash
 
-echo 'Test build'
+TOTAL_TESTS=3
+STATUS_EXIT=0
 
-rm -rf ./tests/assets
+function tap_ok()
+{
+  echo "ok $1"
+}
 
-printf ' * Build without ./tests/assets folder '
+function tap_not_ok()
+{
+  echo "not ok $1"
+  # print diagnostics
+  sed 's/^/# /' "$2"
+
+  STATUS_EXIT=1
+}
+
+function setup()
+{
+  rm -rf ./tests/assets
+}
+
+function teardown()
+{
+  exit $STATUS_EXIT
+}
+
+setup
+
+echo "1..${TOTAL_TESTS}"
+
+# 1. -------
+
+TEST='build without ./tests/assets folder'
 
 ember build --environment test --output-path ./tmp/build-test &> log-test.txt
-if [ ! -e ./tmp/build-test/index*.html ]; then
-  echo ' FAILED'
-  echo '---------'
-  cat log-test.txt
 
-  exit 1001
+if [ ! -e ./tmp/build-test/index*.html ]; then
+  tap_not_ok "$TEST" "log-test.txt"
 else
-  echo 'OK'
+  tap_ok "$TEST"
 fi
+
+# 2. -------
+
+TEST='test production build'
 
 mkdir -p ./tests/assets
 touch ./tests/assets/foo.png
 
-printf ' * Test production build '
-
 ember build -prod --output-path ./tmp/build-production &> log-production.txt
-if [ -e ./tmp/build-production/foo*.png ]; then
-  echo ' FAILED'
-  echo '---------'
-  cat log-production.txt
 
-  exit 1001
+if [ -e ./tmp/build-production/foo*.png ]; then
+  tap_not_ok "$TEST" "log-production.txt"
 else
-  echo 'OK'
+  tap_ok "$TEST"
 fi
 
-printf ' * Test development build '
+# 3. -------
+
+TEST='test development build'
 
 ember build -dev --output-path ./tmp/build-development &> log-development.txt
-if [ ! -e ./tmp/build-development/foo*.png ]; then
-  echo ' ! development build failed.'
-  echo '---------'
-  cat log-development.txt
 
-  exit 1001
+if [ ! -e ./tmp/build-development/foo*.png ]; then
+  tap_not_ok "$TEST" "log-development.txt"
 else
-  echo 'OK'
+  tap_ok "$TEST"
 fi
+
+teardown
